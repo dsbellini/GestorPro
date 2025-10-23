@@ -39,7 +39,7 @@ Pronto! 🎉 O script irá automaticamente:
 - ✅ Configurar tudo para você
 
 #### 3. Acesse a aplicação
-- **Frontend**: http://localhost:5174
+- **Frontend**: http://localhost:5173
 - **Backend API**: http://localhost:3001
 - **Banco de dados**: localhost:3306
 
