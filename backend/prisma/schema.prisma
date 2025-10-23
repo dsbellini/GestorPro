@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Company {
+  id           Int       @id @default(autoincrement())
+  name         String
+  cnpj         String    @unique
+  tradeName    String
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+  addressId   Int
+  address     Address  @relation(fields: [addressId], references: [id], onDelete: Cascade)
+}
+
+model Address {
+  id            Int       @id @default(autoincrement())
+  street        String
+  number        String
+  district     String
+  city          String
+  state         String
+  postalCode    String
+  complemento   String? 
+  companies     Company[]
+}
