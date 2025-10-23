@@ -29,19 +29,26 @@ if (-Not (Test-Path "frontend\.env")) {
     Write-Host "Arquivo frontend .env criado" -ForegroundColor Yellow
 }
 
+# Subir containers (sem rebuild completo — mais rápido e consistente com bash)
 Write-Host "Iniciando containers..." -ForegroundColor Cyan
 docker-compose down -v
-docker-compose build --no-cache
-docker-compose up -d
+docker-compose up -d --build
 
-Write-Host "Aguardando 30 segundos..." -ForegroundColor Yellow
-Start-Sleep -Seconds 30
+# Espera o banco inicializar
+Write-Host "Aguardando 60 segundos para o banco subir..." -ForegroundColor Yellow
+Start-Sleep -Seconds 60
 
+
+Write-Host "Gerando Prisma Client..." -ForegroundColor Cyan
+docker-compose exec -T backend npx prisma generate
+
+# Aplicar migrações dentro do container
 Write-Host "Aplicando migracoes..." -ForegroundColor Cyan
 docker-compose exec -T backend npx prisma migrate deploy
 
+# Mensagem final
 Write-Host ""
 Write-Host "=== SETUP CONCLUIDO ===" -ForegroundColor Green
 Write-Host "Frontend: http://localhost:5173" -ForegroundColor White
-Write-Host "Backend: http://localhost:3000" -ForegroundColor White
+Write-Host "Backend:  http://localhost:3000" -ForegroundColor White
 Write-Host "Prisma Studio: http://localhost:5555" -ForegroundColor White
