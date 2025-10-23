@@ -31,6 +31,22 @@ services:
     working_dir: /app
     command: npm run start:dev
 
+  prisma-studio:
+    build: ./backend
+    container_name: gestorpro_prisma_studio
+    restart: always
+    depends_on:
+      - db
+      - backend
+    env_file:
+      - ./backend/.env
+    ports:
+      - "5555:5555"
+    volumes:
+      - ./backend:/app
+    working_dir: /app
+    command: npx prisma studio --hostname 0.0.0.0 --port 5555
+
   frontend:
     build:
       context: ./frontend
