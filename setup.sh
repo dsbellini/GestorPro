@@ -40,12 +40,8 @@ docker-compose up -d
 
 echo ""
 echo "⏳ Aguardando containers iniciarem..."
-echo "   - Banco de dados: 15 segundos"
-sleep 15
-echo "   - Backend: 10 segundos"
-sleep 10  
-echo "   - Frontend: 10 segundos (npm install + build)"
-sleep 10
+echo "   - Banco de dados: 30 segundos"
+sleep 30
 
 echo ""
 echo "🗄️  Executando migrações do banco de dados..."
@@ -60,7 +56,7 @@ docker-compose ps
 
 echo ""
 echo "🌐 Acesse a aplicação em:"
-echo "   Frontend: http://localhost:5174"
-echo "   Backend:  http://localhost:3001"
+echo "   Frontend: http://localhost:5173"
+echo "   Backend:  http://localhost:3000"
 echo ""
 echo "📚 Para mais informações, consulte o README.md"

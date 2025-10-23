@@ -20,13 +20,11 @@ async function bootstrap() {
   setupRoutes(app);
 
   app.enableCors({
-    origin: process.env.CORS_ORIGIN
-      ? process.env.CORS_ORIGIN.split(',')
-      : ['http://localhost:5174', 'http://localhost:3000'],
+    origin: true, // PERMITE QUALQUER ORIGEM
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
   });
 
-  await app.listen(process.env.PORT ?? 3001);
+  await app.listen(process.env.PORT ?? 3000);
 }
 bootstrap();
