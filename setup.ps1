@@ -39,11 +39,18 @@ if (-Not (Test-Path "frontend\.env")) {
 
 Write-Host ""
 Write-Host "🐳 Subindo containers Docker..." -ForegroundColor Cyan
+docker-compose down -v  # Remove volumes antigos
+docker-compose build --no-cache  # Build limpo
 docker-compose up -d
 
 Write-Host ""
 Write-Host "⏳ Aguardando containers iniciarem..." -ForegroundColor Yellow
-Start-Sleep -Seconds 10
+Write-Host "   - Banco de dados: 30 segundos"
+Start-Sleep -Seconds 30
+Write-Host "   - Backend: 20 segundos"  
+Start-Sleep -Seconds 20
+Write-Host "   - Frontend: 30 segundos (npm install + build)"
+Start-Sleep -Seconds 30
 
 Write-Host ""
 Write-Host "🗄️  Executando migrações do banco de dados..." -ForegroundColor Cyan

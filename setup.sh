@@ -34,11 +34,18 @@ fi
 
 echo ""
 echo "🐳 Subindo containers Docker..."
+docker-compose down -v  # Remove volumes antigos
+docker-compose build --no-cache  # Build limpo
 docker-compose up -d
 
 echo ""
 echo "⏳ Aguardando containers iniciarem..."
-sleep 10
+echo "   - Banco de dados: 30 segundos"
+sleep 30
+echo "   - Backend: 20 segundos"
+sleep 20  
+echo "   - Frontend: 30 segundos (npm install + build)"
+sleep 30
 
 echo ""
 echo "🗄️  Executando migrações do banco de dados..."

@@ -13,8 +13,8 @@ RUN npm install
 # Copia todo o código
 COPY . .
 
-# Expõe porta do backend
-EXPOSE 3000
+# Expõe porta do frontend
+EXPOSE 5173
 
-# Comando para rodar em dev (Hot reload com nodemon)
-CMD ["npm", "run", "start:dev"]
+# Comando para rodar em dev (Hot reload com Vite)
+CMD ["npm", "run", "dev", "--", "--host"]
