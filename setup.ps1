@@ -45,12 +45,12 @@ docker-compose up -d
 
 Write-Host ""
 Write-Host "⏳ Aguardando containers iniciarem..." -ForegroundColor Yellow
-Write-Host "   - Banco de dados: 30 segundos"
-Start-Sleep -Seconds 30
-Write-Host "   - Backend: 20 segundos"  
-Start-Sleep -Seconds 20
-Write-Host "   - Frontend: 30 segundos (npm install + build)"
-Start-Sleep -Seconds 30
+Write-Host "   - Banco de dados: 15 segundos"
+Start-Sleep -Seconds 15
+Write-Host "   - Backend: 10 segundos"
+Start-Sleep -Seconds 10
+Write-Host "   - Frontend: 10 segundos (npm install + build)"
+Start-Sleep -Seconds 10
 
 Write-Host ""
 Write-Host "🗄️  Executando migrações do banco de dados..." -ForegroundColor Cyan
@@ -65,7 +65,7 @@ docker-compose ps
 
 Write-Host ""
 Write-Host "🌐 Acesse a aplicação em:" -ForegroundColor Green
-Write-Host "   Frontend: http://localhost:5173" -ForegroundColor White
-Write-Host "   Backend:  http://localhost:3000" -ForegroundColor White
+Write-Host "   Frontend: http://localhost:5174" -ForegroundColor White
+Write-Host "   Backend:  http://localhost:3001" -ForegroundColor White
 Write-Host ""
 Write-Host "📚 Para mais informações, consulte o README.md" -ForegroundColor Blue
