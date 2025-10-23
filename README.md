@@ -15,7 +15,7 @@ Antes de começar, certifique-se de ter as seguintes ferramentas instaladas:
 
 #### 1. Clone o repositório
 ```bash
-git clone <URL_DO_REPOSITORIO>
+git clone git@github.com:dsbellini/GestorPro.git
 cd gestorpro
 ```
 
@@ -49,7 +49,7 @@ Pronto! 🎉 O script irá automaticamente:
 
 #### 1. Clone o repositório
 ```bash
-git clone <URL_DO_REPOSITORIO>
+git clone git@github.com:dsbellini/GestorPro.git
 cd gestorpro
 ```
 
