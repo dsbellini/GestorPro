@@ -40,7 +40,7 @@ Pronto! 🎉 O script irá automaticamente:
 
 #### 3. Acesse a aplicação
 - **Frontend**: http://localhost:5173
-- **Backend API**: http://localhost:3001
+- **Backend API**: http://localhost:3000
 - **Banco de dados**: localhost:3306
 
 ---
