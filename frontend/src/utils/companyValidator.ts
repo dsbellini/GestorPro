@@ -61,6 +61,26 @@ export class CompanyValidator {
       }
     }
 
+    if (form.district) {
+      const districtError = this.validateDistrict(form.district);
+      if (districtError) {
+        errors.push({
+          field: 'district',
+          message: districtError
+        });
+      }
+    }
+
+    if (form.city) {
+      const cityError = this.validateCity(form.city);
+      if (cityError) {
+        errors.push({
+          field: 'city',
+          message: cityError
+        });
+      }
+    }
+
     if (form.postalCode) {
       const cepError = this.validateCEP(form.postalCode);
       if (cepError) {
@@ -145,6 +165,26 @@ export class CompanyValidator {
     return null;
   }
 
+  private static validateDistrict(district: string): string | null {
+    const cleanDistrict = district.trim();
+    
+    if (!/^[A-Za-zÀ-ÿ\s]+$/.test(cleanDistrict)) {
+      return 'Bairro deve conter apenas letras';
+    }
+
+    return null;
+  }
+
+  private static validateCity(city: string): string | null {
+    const cleanCity = city.trim();
+    
+    if (!/^[A-Za-zÀ-ÿ\s]+$/.test(cleanCity)) {
+      return 'Cidade deve conter apenas letras';
+    }
+
+    return null;
+  }
+
   private static getFieldLabel(field: string): string {
     const labels: Record<string, string> = {
       name: 'Nome',
@@ -177,6 +217,10 @@ export class CompanyValidator {
         return this.validateState(value);
       case 'postalCode':
         return this.validateCEP(value);
+      case 'district':
+        return this.validateDistrict(value);
+      case 'city':
+        return this.validateCity(value);
       default:
         return null;
     }
