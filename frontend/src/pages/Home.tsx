@@ -25,7 +25,7 @@ export default function Home() {
           />
         </Box>
         <Typography variant="subtitle1" sx={{ mb: 4 }}>
-          GestorPro - Gestão de empresas simplificada
+          GestorPro - Gestão simplificada de empresas
         </Typography>
         <Box>
           <Button
